@@ -69,7 +69,7 @@ public class TesteDatabase {
 
 		pedido1.setData(formattedDate);
 
-		pedido1.setQuantidadeItens(pedidos1.size() + 1);
+		pedido1.setQuantidadeItens(produtos1.size());
 
 		pedido1.setMedicamentos(produtos1);
 
@@ -96,7 +96,7 @@ public class TesteDatabase {
 		valor = produto3.getPreco() + produto4.getPreco();
 		pedido2.setValorTotal(valor);
 
-		pedido2.setQuantidadeItens(pedidos2.size() + 1);
+		pedido2.setQuantidadeItens(produtos2.size());
 
 		pedido2.setData(formattedDate);
 
@@ -118,16 +118,20 @@ public class TesteDatabase {
 		TypedQuery<Cliente> clienteQuery = em.createQuery("SELECT c FROM Cliente c", Cliente.class);
 		for (Cliente each : clienteQuery.getResultList()) {
 			System.out.println("Nome Cliente: " + each.getNome());
+			System.out.println("CPF: " + each.getCpf());
 		}
 		
 		TypedQuery<Vendedor> vendedorQuery = em.createQuery("SELECT v FROM Vendedor v", Vendedor.class);
 		for (Vendedor each : vendedorQuery.getResultList()) {
 			System.out.println("Nome Vendedor: " + each.getNome());
+			System.out.println("CPF: " + each.getCpf());
 		}
 		
 		TypedQuery<Produto> medicamentoQuery = em.createQuery("SELECT pr FROM Produto pr", Produto.class);
 		for (Produto each : medicamentoQuery.getResultList()) {
 			System.out.println("Nome Medicamento: " + each.getNome());
+			System.out.println("Tipo: " + each.getTipo());
+			System.out.println("Fornecedor: " + each.getFornecedor());
 		}
 		
 		TypedQuery<Pedido> pedidoQuery = em.createQuery("SELECT p FROM Pedido p", Pedido.class);
@@ -135,15 +139,13 @@ public class TesteDatabase {
 		for (Pedido each : pedidoQuery.getResultList()) {
 			System.out.println("\nPedido número " + pedidoNumber);
 			System.out.println("----------------------------------------------");
-			System.out.println("Data e Horário: " + each.getData());
+			System.out.println("Data e Hora: " + each.getData());
 			System.out.println("Cliente: " + each.getCliente().getNome());
 			System.out.println("Vendedor: " + each.getVendedor().getNome());
 			System.out.println("Quantidade de itens: " + each.getQuantidadeItens());
 			System.out.print("\nProdutos:");
 			for(Produto eachMed : each.getMedicamentos()){
 				System.out.println("\nProduto: " + eachMed.getNome());
-				System.out.println("Tipo: " + eachMed.getTipo());
-				System.out.println("Fornecedor: " + eachMed.getFornecedor());
 				System.out.println("Valor: " + eachMed.getPreco());
 			}
 			
