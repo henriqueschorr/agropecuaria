@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pedido xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="Agropecuaria1.xsd">
+  <cliente>
+    <cpf>12345678901</cpf>
+    <nome>Henrique Schorr</nome>
+  </cliente>
+  <data>20160413180930</data>
+  <medicamentos>
+    <estoque>5</estoque>
+    <fornecedor>Cepav</fornecedor>
+    <nome>Giardicid Suspensão - 50ml</nome>
+    <preco>45.0</preco>
+    <tipo>MEDICACAO</tipo>
+  </medicamentos>
+  <quantidadeItens>1</quantidadeItens>
+  <valorTotal>45.0</valorTotal>
+  <vendedor>
+    <cpf>10987654321</cpf>
+    <nome>Douglas Brauner</nome>
+  </vendedor>
+</pedido>

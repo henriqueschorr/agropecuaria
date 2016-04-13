@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="pedido" type="pedido"/>
+
+  <xs:complexType name="testeDatabase">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="cliente">
+    <xs:sequence>
+      <xs:element name="cpf" type="xs:string" minOccurs="1"/>
+      <xs:element name="nome" type="xs:string" minOccurs="1"/>
+      <xs:element name="pedidos" type="pedido" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="pedido">
+    <xs:sequence>
+      <xs:element name="cliente" type="cliente" minOccurs="1"/>
+      <xs:element name="data" type="xs:string" minOccurs="1"/>
+      <xs:element name="medicamentos" type="produto" nillable="false" minOccurs="1" maxOccurs="unbounded"/>
+      <xs:element name="quantidadeItens" type="xs:int" minOccurs="1"/>
+      <xs:element name="valorTotal" type="xs:double" minOccurs="1"/>
+      <xs:element name="vendedor" type="vendedor" minOccurs="1"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="produto">
+    <xs:sequence>
+      <xs:element name="estoque" type="xs:int" minOccurs="1"/>
+      <xs:element name="fornecedor" type="xs:string" minOccurs="1"/>
+      <xs:element name="nome" type="xs:string" minOccurs="1"/>
+      <xs:element name="preco" type="xs:double" minOccurs="1"/>
+      <xs:element name="tipo" type="tipoProduto" minOccurs="1"/>
+      <xs:element name="vendas" type="pedido" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="vendedor">
+    <xs:sequence>
+      <xs:element name="cpf" type="xs:string" minOccurs="1"/>
+      <xs:element name="nome" type="xs:string" minOccurs="1"/>
+      <xs:element name="vendas" type="pedido" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:simpleType name="tipoProduto">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ALIMENTACAO"/>
+      <xs:enumeration value="MEDICACAO"/>
+      <xs:enumeration value="ACESSORIOS"/>
+      <xs:enumeration value="HIGIENE"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+

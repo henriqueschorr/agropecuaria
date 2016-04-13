@@ -1,0 +1,24 @@
+{
+  "pedido": {
+    "-xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "-xsi:noNamespaceSchemaLocation": "Agropecuaria1.xsd",
+    "cliente": {
+      "cpf": "12345678901",
+      "nome": "Henrique Schorr"
+    },
+    "data": "20160413180930",
+    "medicamentos": {
+      "estoque": "5",
+      "fornecedor": "Cepav",
+      "nome": "Giardicid Suspensão - 50ml",
+      "preco": "45.0",
+      "tipo": "MEDICACAO"
+    },
+    "quantidadeItens": "1",
+    "valorTotal": "45.0",
+    "vendedor": {
+      "cpf": "10987654321",
+      "nome": "Douglas Brauner"
+    }
+  }
+}
